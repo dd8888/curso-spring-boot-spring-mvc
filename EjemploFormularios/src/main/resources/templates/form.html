@@ -49,85 +49,85 @@
 </nav>
 
 <div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <form method="post" action="#" th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}" th:object="${empleadoForm}">
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend th:text="${empleadoForm.getId() == 0} ? 'Editar empleado' : 'Nuevo empleado'">Nuevo empleado</legend>
 
-    <div class="starter-template">
-        <h1>Nuevo empleado</h1>
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8">
-                <form method="post" action="#" th:action="@{/empleado/new/submit}" th:object="${empleadoForm}">
-                    <fieldset>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="id">ID</label>
+                        <div class="col-md-4">
+                            <input id="id" name="id" type="text" placeholder="Inserte su ID"
+                                   class="form-control input-md" required="" th:field="*{id}"
+                                    th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null">
+                        </div>
+                    </div>
 
-                        <!-- Form Name -->
-                        <legend>Nuevo empleado</legend>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="id">ID</label>
-                            <div class="col-md-4">
-                                <input id="id" name="id" type="text" placeholder="Inserte su ID"
-                                       class="form-control input-md" required="" th:field="*{id}">
 
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Nombre">Nombre</label>
+                        <div class="col-md-4">
+                            <input id="Nombre" name="Nombre" type="text" placeholder="Inserte su nombre"
+                                   class="form-control input-md" th:field="*{nombre}">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="email">Email</label>
+                        <div class="col-md-4">
+                            <input id="email" name="email" type="text" placeholder="Inserte su email"
+                                   class="form-control input-md" th:field="*{email}">
+
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telefono">Telefono</label>
+                        <div class="col-md-4">
+                            <input id="telefono" name="telefono" type="text" placeholder="Inserte su telefono"
+                                   class="form-control input-md" th:field="*{telefono}">
+
+                        </div>
+                    </div>
+
+                    <!-- Multiple Radios -->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="radios">Director</label>
+                        <div class="col-md-4">
+                            <div class="radio">
+                                <label for="radios-0">
+                                    <input type="radio" name="radios" id="radios-0" value="true" checked="checked"
+                                           th:field="*{directivo}">
+                                    Si
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radios-1">
+                                    <input type="radio" name="radios" id="radios-1" value="false"
+                                           th:field="*{directivo}">
+                                    No
+                                </label>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="Nombre" >Nombre</label>
-                            <div class="col-md-4">
-                                <input id="Nombre" name="Nombre" type="text" placeholder="Inserte su nombre"
-                                       class="form-control input-md" th:field="*{nombre}">
-                            </div>
-                        </div>
+                    <!-- Button -->
 
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="email" >Email</label>
-                            <div class="col-md-4">
-                                <input id="email" name="email" type="text" placeholder="Inserte su email"
-                                       class="form-control input-md" th:field="*{email}">
-
-                            </div>
-                        </div>
-
-                        <!-- Text input-->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="telefono" >Telefono</label>
-                            <div class="col-md-4">
-                                <input id="telefono" name="telefono" type="text" placeholder="Inserte su telefono"
-                                       class="form-control input-md" th:field="*{telefono}">
-
-                            </div>
-                        </div>
-
-                        <!-- Multiple Radios -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="radios">Director</label>
-                            <div class="col-md-4">
-                                <div class="radio">
-                                    <label for="radios-0">
-                                        <input type="radio" name="radios" id="radios-0" value="true" checked="checked" th:field="*{directivo}">
-                                        Si
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label for="radios-1">
-                                        <input type="radio" name="radios" id="radios-1" value="false" th:field="*{directivo}">
-                                        No
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Button -->
-
-                        <button type="submit" id="enviar" name="enviar" class="btn btn-primary">Enviar</button>
+                    <button type="submit" id="enviar" name="enviar" class="btn btn-primary">Enviar</button>
 
 
-                    </fieldset>
-                </form>
-            </div>
+                </fieldset>
+            </form>
         </div>
     </div>
+</div>
 </div>
 
 </div><!-- /.container -->

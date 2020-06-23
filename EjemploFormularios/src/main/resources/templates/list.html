@@ -59,20 +59,22 @@
                     <th>Email</th>
                     <th>Telefono</th>
                     <th>Directivo</th>
+                    <th>Operaciones</th>
 
                 </thead>
 
                 <tbody>
                 <!--Itera sobre la lista-->
                 <tr th:each="empleado : ${listaEmpleados}">
-                    <th th:text="${empleado.getId()}"></th>
-                    <th th:text="${empleado.getNombre()}">Nombre</th>
-                    <th th:text="${empleado.getEmail()}">Email</th>
-                    <th th:text="${empleado.getTelefono()}">Telefono</th>
+                    <td th:text="${empleado.getId()}"></th>
+                    <td th:text="${empleado.getNombre()}">Nombre</td>
+                    <td th:text="${empleado.getEmail()}">Email</td>
+                    <td th:text="${empleado.getTelefono()}">Telefono</td>
                     <div th:switch="${empleado.isDirectivo()}">
-                        <th th:case="true">Si</th>
-                        <th th:case="false">No</th>
+                        <td th:case="true">Si</td>
+                        <td th:case="false">No</td>
                     </div>
+                    <td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}">Editar</a> </td>
                 </tr>
                 </tbody>
             </table>
