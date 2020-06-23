@@ -51,70 +51,66 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <form method="post" action="#" th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}" th:object="${empleadoForm}">
+            <form method="post" action="#"
+                  th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}"
+                  th:object="${empleadoForm}">
                 <fieldset>
                     <!-- Form Name -->
-                    <legend th:text="${empleadoForm.getId() == 0} ? 'Editar empleado' : 'Nuevo empleado'">Nuevo empleado</legend>
+                    <legend th:text="${empleadoForm.getId() == 0} ? 'Editar empleado' : 'Nuevo empleado'">Nuevo
+                        empleado
+                    </legend>
 
                     <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="id">ID</label>
-                        <div class="col-md-4">
-                            <input id="id" name="id" type="text" placeholder="Inserte su ID"
-                                   class="form-control input-md" required="" th:field="*{id}"
-                                    th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null">
-                        </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('id')} ? 'has-error'">
+                        <label for="id">ID</label>
+                        <input type="text" class="form-control" id="id" placeholder="1"
+                               th:field="*{id}" th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null"/>
+                        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}" class="help-block" id="id-error">Errores</span>
                     </div>
 
 
-
                     <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="Nombre">Nombre</label>
-                        <div class="col-md-4">
-                            <input id="Nombre" name="Nombre" type="text" placeholder="Inserte su nombre"
-                                   class="form-control input-md" th:field="*{nombre}">
-                        </div>
+                    <div class="form-group" th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+                        <label for="nombre">Nombre</label>
+                        <input id="nombre" type="text"  class="form-control" placeholder="Inserte su nombre"
+                               th:field="*{nombre}"
+                               th:attrappend="readonly=${empleadoForm.nombre != null} ? 'readonly' : null"/>
+                        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="help-block" id="nombre-error">Errores</span>
+
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="email">Email</label>
-                        <div class="col-md-4">
-                            <input id="email" name="email" type="text" placeholder="Inserte su email"
-                                   class="form-control input-md" th:field="*{email}">
+                        <input id="email" name="email" type="text" placeholder="Inserte su email"
+                               class="form-control input-md" th:field="*{email}">
 
-                        </div>
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="telefono">Telefono</label>
-                        <div class="col-md-4">
-                            <input id="telefono" name="telefono" type="text" placeholder="Inserte su telefono"
-                                   class="form-control input-md" th:field="*{telefono}">
+                        <input id="telefono" name="telefono" type="text" placeholder="Inserte su telefono"
+                               class="form-control input-md" th:field="*{telefono}">
 
-                        </div>
                     </div>
 
                     <!-- Multiple Radios -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="radios">Director</label>
-                        <div class="col-md-4">
-                            <div class="radio">
-                                <label for="radios-0">
-                                    <input type="radio" name="radios" id="radios-0" value="true" checked="checked"
-                                           th:field="*{directivo}">
-                                    Si
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label for="radios-1">
-                                    <input type="radio" name="radios" id="radios-1" value="false"
-                                           th:field="*{directivo}">
-                                    No
-                                </label>
-                            </div>
+                        <div class="radio">
+                            <label for="radios-0">
+                                <input type="radio" name="radios" id="radios-0" value="true" checked="checked"
+                                       th:field="*{directivo}">
+                                Si
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="radios-1">
+                                <input type="radio" name="radios" id="radios-1" value="false"
+                                       th:field="*{directivo}">
+                                No
+                            </label>
                         </div>
                     </div>
 

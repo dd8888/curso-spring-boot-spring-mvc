@@ -1,10 +1,15 @@
 package com.openwebinars.spring.modelos;
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 public class Empleado {
 
+    @Min(value = 0, message = "{empleado.id.mayorquecero}")
     private long id;
+    @NotEmpty(message = "{empleado.nombre.notnull}")
     private String nombre;
+    @Email(message = "{empleado.email.formato}")
     private String email;
     private String telefono;
     private boolean directivo;
