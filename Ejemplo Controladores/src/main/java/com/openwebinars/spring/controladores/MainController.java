@@ -3,6 +3,7 @@ package com.openwebinars.spring.controladores;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
@@ -27,9 +28,11 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/saludo")
-    public String saludo(Model model){
-        model.addAttribute("saludo", "jaja si no");
+    //@PathVariable recoge una parte de la URL
+    @GetMapping("/saludo/{name}")
+    public String saludo(@PathVariable String name, Model model){
+        model.addAttribute("saludo", "Hola " + name);
+        //model.addAttribute("saludo", "jaja si no");
         return "saludo";
     }
 
