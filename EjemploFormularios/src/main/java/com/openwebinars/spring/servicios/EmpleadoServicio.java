@@ -25,9 +25,9 @@ public class EmpleadoServicio {
     @PostConstruct
     public void init() {
         repositorio.addAll(
-                Arrays.asList(new Empleado(1,"Antonio García", "antonio.garcia@openwebinars.net", "954000000"),
-                        new Empleado(2,"María López", "maria.lopez@openwebinars.net", "954000000"),
-                        new Empleado(3,"Ángel Antúnez", "angel.antunez@openwebinars.net", "954000000")
+                Arrays.asList(new Empleado(1,"Antonio García", "antonio.garcia@openwebinars.net", "954000000", true),
+                        new Empleado(2,"María López", "maria.lopez@openwebinars.net", "954000000", true),
+                        new Empleado(3,"Ángel Antúnez", "angel.antunez@openwebinars.net", "954000000", false)
                 )
         );
     }

@@ -98,6 +98,26 @@
 
                             </div>
                         </div>
+
+                        <!-- Multiple Radios -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="radios">Director</label>
+                            <div class="col-md-4">
+                                <div class="radio">
+                                    <label for="radios-0">
+                                        <input type="radio" name="radios" id="radios-0" value="true" checked="checked" th:field="*{directivo}">
+                                        Si
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label for="radios-1">
+                                        <input type="radio" name="radios" id="radios-1" value="false" th:field="*{directivo}">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- Button -->
 
                         <button type="submit" id="enviar" name="enviar" class="btn btn-primary">Enviar</button>

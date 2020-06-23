@@ -58,6 +58,7 @@
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Telefono</th>
+                    <th>Directivo</th>
 
                 </thead>
 
@@ -68,6 +69,10 @@
                     <th th:text="${empleado.getNombre()}">Nombre</th>
                     <th th:text="${empleado.getEmail()}">Email</th>
                     <th th:text="${empleado.getTelefono()}">Telefono</th>
+                    <div th:switch="${empleado.isDirectivo()}">
+                        <th th:case="true">Si</th>
+                        <th th:case="false">No</th>
+                    </div>
                 </tr>
                 </tbody>
             </table>

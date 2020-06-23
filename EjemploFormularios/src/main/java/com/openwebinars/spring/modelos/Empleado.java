@@ -7,15 +7,25 @@ public class Empleado {
     private String nombre;
     private String email;
     private String telefono;
+    private boolean directivo;
 
     public Empleado() {
     }
 
-    public Empleado(long id, String nombre, String email, String telefono) {
+    public Empleado(long id, String nombre, String email, String telefono, boolean directivo) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
+        this.directivo = directivo;
+    }
+
+    public boolean isDirectivo() {
+        return directivo;
+    }
+
+    public void setDirectivo(boolean directivo) {
+        this.directivo = directivo;
     }
 
     public long getId() {
@@ -57,6 +67,7 @@ public class Empleado {
                 ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
+                ", directivo='" + directivo + '\'' +
                 '}';
     }
 }
