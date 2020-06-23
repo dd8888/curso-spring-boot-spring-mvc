@@ -21,7 +21,8 @@ public class Controlador {
 
     @GetMapping("/que")
     public String what(Model model){
-        model.addAttribute("que", "venga ya hombre");
+        //Aquí desde Java le estoy enviando lo que quiero que muestre
+        model.addAttribute("que", "Que pasa");
         return "que";
     }
 

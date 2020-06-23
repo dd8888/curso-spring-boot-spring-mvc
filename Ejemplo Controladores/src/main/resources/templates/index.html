@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-    <h1 th:text="${mensaje}"></h1>
+    <?--Envío el parámetro en la URL--?>
+
+    <h1 th:text="${'hola ' + nombre}"></h1>
 </body>
 </html>
