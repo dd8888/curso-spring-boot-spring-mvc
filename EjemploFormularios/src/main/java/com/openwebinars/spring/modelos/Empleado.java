@@ -13,8 +13,26 @@ public class Empleado {
     private String email;
     private String telefono;
     private boolean directivo;
+    private String imagen;
 
     public Empleado() {
+    }
+
+    public Empleado(@Min(value = 0, message = "{empleado.id.mayorquecero}") long id, @NotEmpty(message = "{empleado.nombre.notnull}") String nombre, @Email(message = "{empleado.email.formato}") String email, String telefono, boolean directivo, String imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.telefono = telefono;
+        this.directivo = directivo;
+        this.imagen = imagen;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public Empleado(long id, String nombre, String email, String telefono, boolean directivo) {
@@ -72,7 +90,8 @@ public class Empleado {
                 ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", directivo='" + directivo + '\'' +
+                ", directivo=" + directivo +
+                ", imagen='" + imagen + '\'' +
                 '}';
     }
 }

@@ -51,7 +51,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <form method="post" action="#"
+            <form method="post" enctype="multipart/form-data" action="#"
                   th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}"
                   th:object="${empleadoForm}">
                 <fieldset>
@@ -114,6 +114,11 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group">
+                        <label for="file">Avatar</label>
+                        <input type="file" id="filebutton" name="file" id="file" class="form-control input-file"/>
+                    </div>
                     <!-- Button -->
 
                     <button type="submit" id="enviar" name="enviar" class="btn btn-primary">Enviar</button>
