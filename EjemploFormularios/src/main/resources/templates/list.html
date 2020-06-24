@@ -55,11 +55,13 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Avatar</th>
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Telefono</th>
                     <th>Directivo</th>
                     <th>Operaciones</th>
+
 
                 </thead>
 
@@ -67,6 +69,7 @@
                 <!--Itera sobre la lista-->
                 <tr th:each="empleado : ${listaEmpleados}">
                     <td th:text="${empleado.getId()}"></th>
+                    <td> <img src="" th:src="@{${empleado.imagen} ?: 'https://api.adorable.io/avatars/64/{email}.png'(email=${empleado.email})}" width="64px"></img> </td>
                     <td th:text="${empleado.getNombre()}">Nombre</td>
                     <td th:text="${empleado.getEmail()}">Email</td>
                     <td th:text="${empleado.getTelefono()}">Telefono</td>
