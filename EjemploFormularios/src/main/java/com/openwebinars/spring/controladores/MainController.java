@@ -38,14 +38,14 @@ public class MainController {
 
     @PostMapping("/empleado/new/submit")
     public String nuevoEmpleadoSubmit(@Valid @ModelAttribute("empleadoForm") Empleado nuevoEmpleado, BindingResult bindingResult,
-    @RequestParam("file") MultipartFile file) {
+                                      @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors()) {
             return "form";
         } else {
-            if(!file.isEmpty()){
+            if (!file.isEmpty()) {
                 String avatar = storageService.store(file, nuevoEmpleado.getId());
                 nuevoEmpleado.setImagen(MvcUriComponentsBuilder.fromMethodName(MainController.class, "serveFile"
-                , avatar).build().toUriString());
+                        , avatar).build().toUriString());
             }
             servicio.add(nuevoEmpleado);
             return "redirect:/empleado/list";
@@ -64,10 +64,16 @@ public class MainController {
     }
 
     @PostMapping("/empleado/edit/submit")
-    public String editarEmpleadoSubmit(@Valid @ModelAttribute("empleadoForm") Empleado editEmpleado, BindingResult bindingResult) {
+    public String editarEmpleadoSubmit(@Valid @ModelAttribute("empleadoForm") Empleado editEmpleado, BindingResult bindingResult,
+                                       @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors()) {
             return "form";
         } else {
+            if (!file.isEmpty()) {
+                String avatar = storageService.store(file, editEmpleado.getId());
+                editEmpleado.setImagen(MvcUriComponentsBuilder.fromMethodName(MainController.class, "serveFile"
+                        , avatar).build().toUriString());
+            }
             servicio.editEmpleado(editEmpleado);
             return "redirect:/empleado/list";
         }
@@ -75,7 +81,7 @@ public class MainController {
 
     @GetMapping("/files/filename:.+")
     @ResponseBody
-    public ResponseEntity<Resource> serveFile(@PathVariable String filename){
+    public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
         Resource file = storageService.loadAsResource(filename);
         return ResponseEntity.ok().body(file);
     }
